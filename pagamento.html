@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Finalizar Pagamento</h1>
+    </header>
+
+    <main>
+        <section id="resumo-compra">
+            <div class="resumo">
+                <h2>🛍 Resumo da Compra</h2>
+            </div>
+            <ul id="lista-pagamento"></ul>
+            <p id="total-pagamento">Total: R$ 0,00</p>
+        </section>
+
+        <section id="dados-pagamento">
+            <h2>💳 Informações de Pagamento</h2>
+            <form id="form-pagamento">
+                <label>Nome no Cartão:</label>
+                <input type="text" required>
+
+                <label>Número do Cartão:</label>
+                <input type="text" placeholder="**** **** **** ****" required>
+
+                <label>Data de Validade:</label>
+                <input type="month" required>
+
+                <label>CVV:</label>
+                <input type="text" placeholder="***" required>
+
+                <button type="submit">💸 Confirmar Pagamento</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="pagamento.js"></script>
+</body>
+</html>
