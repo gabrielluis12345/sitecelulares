@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const listaPagamento = document.getElementById("lista-pagamento");
     const totalPagamento = document.getElementById("total-pagamento");
-    const formPagamento = document.getElementById("form-pagamento");
+    const formCartao = document.getElementById("form-cartao");
+    const botaoPix = document.getElementById("confirmar-pix");
+    
+    const pagamentoCartao = document.getElementById("dados-pagamento");
+    const pagamentoPix = document.getElementById("pagamento-pix");
+    const opcoesPagamento = document.querySelectorAll("input[name='forma-pagamento']");
 
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -19,11 +24,29 @@ document.addEventListener("DOMContentLoaded", () => {
         totalPagamento.textContent = `Total: R$ ${total.toFixed(2)}`;
     }
 
-    formPagamento.addEventListener("submit", (event) => {
+    formCartao.addEventListener("submit", (event) => {
         event.preventDefault();
-        alert("Pagamento realizado com sucesso!");
+        alert("Pagamento com cartão realizado com sucesso!");
         localStorage.removeItem("carrinho");
         window.location.href = "index.html";
+    });
+
+    botaoPix.addEventListener("click", () => {
+        alert("Pagamento via PIX confirmado!");
+        localStorage.removeItem("carrinho");
+        window.location.href = "index.html";
+    });
+
+    opcoesPagamento.forEach((opcao) => {
+        opcao.addEventListener("change", () => {
+            if (opcao.value === "cartao") {
+                pagamentoCartao.style.display = "block";
+                pagamentoPix.style.display = "none";
+            } else {
+                pagamentoCartao.style.display = "none";
+                pagamentoPix.style.display = "block";
+            }
+        });
     });
 
     carregarResumo();
