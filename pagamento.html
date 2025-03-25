@@ -13,16 +13,24 @@
 
     <main>
         <section id="resumo-compra">
-            <div class="resumo">
-                <h2>🛍 Resumo da Compra</h2>
-            </div>
+            <h2>🛍 Resumo da Compra</h2>
             <ul id="lista-pagamento"></ul>
             <p id="total-pagamento">Total: R$ 0,00</p>
         </section>
 
+        <section id="escolha-pagamento">
+            <h2>🛒 Escolha a Forma de Pagamento</h2>
+            <label>
+                <input type="radio" name="forma-pagamento" value="cartao" checked> 💳 Cartão de Crédito
+            </label>
+            <label>
+                <input type="radio" name="forma-pagamento" value="pix"> 📲 PIX
+            </label>
+        </section>
+
         <section id="dados-pagamento">
-            <h2>💳 Informações de Pagamento</h2>
-            <form id="form-pagamento">
+            <h2>💳 Pagamento com Cartão</h2>
+            <form id="form-cartao">
                 <label>Nome no Cartão:</label>
                 <input type="text" required>
 
@@ -37,6 +45,13 @@
 
                 <button type="submit">💸 Confirmar Pagamento</button>
             </form>
+        </section>
+
+        <section id="pagamento-pix" style="display: none;">
+            <h2>📲 Pague com PIX</h2>
+            <p>Escaneie o QR Code abaixo para pagar com PIX:</p>
+            <img id="qr-pix" src="https://via.placeholder.com/200?text=QR+Code+PIX" alt="QR Code PIX">
+            <button id="confirmar-pix">✅ Confirmar Pagamento</button>
         </section>
     </main>
 
